@@ -10,13 +10,14 @@
     </description>
     <profiles>
         <profile name="kvm-and-xen" description="JeOS for KVM and Xen" arch="x86_64"/>
+        <profile name="kvm-cloud-image" description="JeOS for KVM for Harvester" arch="x86_64"/>
         <profile name="kvm" description="JeOS for KVM" arch="aarch64"/>
         <profile name="VMware" description="JeOS for VMware" arch="x86_64"/>
         <profile name="MS-HyperV" description="JeOS for Hyper-V" arch="x86_64"/>
         <profile name="OpenStack-Cloud" description="JeOS for OpenStack Cloud" arch="x86_64"/>
         <profile name="RaspberryPi" description="JeOS for the Raspberry Pi" arch="aarch64"/>
     </profiles>
-    <preferences profiles="kvm-and-xen">
+    <preferences profiles="kvm-and-xen,kvm-cloud-image">
         <version>15.3</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>openSUSE</bootsplash-theme>
@@ -296,7 +297,7 @@
     </packages>
 
     <!-- Shim for secure boot everywhere except for RPi -->
-    <packages type="image" profiles="kvm-and-xen,kvm,VMware,MS-HyperV,OpenStack-Cloud">
+    <packages type="image" profiles="kvm-and-xen,kvm,VMware,MS-HyperV,OpenStack-Cloud,kvm-cloud-image">
         <package name="shim" arch="aarch64,x86_64"/>
     </packages>
 
@@ -316,16 +317,25 @@
         <!-- Not useful with OpenStack --> 
         <package name="firewalld"/>
     </packages>
+    <packages type="image" profiles="kvm-cloud-image">
+        <!-- Only for btrfs -->
+        <package name="btrfsprogs"/>
+        <package name="btrfsmaintenance"/>
+        <package name="grub2-snapper-plugin"/>  <!-- snapper - grub2 - integration, "small" -->
+        <package name="snapper-zypp-plugin"/>   <!-- this is key snapper/zypp integration, as requested in the PRD -->
+        <package name="snapper"/>
 
-    <packages type="image" profiles="kvm-and-xen">
+    </packages>
+
+    <packages type="image" profiles="kvm-and-xen,kvm-cloud-image">
         <!-- XEN specific packages -->
         <package name="xen-tools-domU" arch="x86_64"/>
         <package name="xen-libs" arch="x86_64"/>
     </packages>
-    <packages type="image" profiles="kvm-and-xen,kvm">
+    <packages type="image" profiles="kvm-and-xen,kvm,kvm-cloud-image">
         <package name="kernel-default-base"/>
     </packages>
-    <packages type="image" profiles="kvm-and-xen,kvm,OpenStack-Cloud">
+    <packages type="image" profiles="kvm-and-xen,kvm,OpenStack-Cloud,kvm-cloud-image">
         <package name="qemu-guest-agent"/>
     </packages>
     <packages type="image" profiles="VMware">
@@ -337,6 +347,10 @@
         <package name="cloud-init-config-suse" />
         <package name="xfsprogs" />
         <package name="kernel-default-base"/>
+    </packages>
+        <packages type="image" profiles="kvm-cloud-image">
+        <package name="cloud-init" />
+        <package name="cloud-init-config-suse" />
     </packages>
     <packages type="image" profiles="MS-HyperV">
         <package name="hyper-v" arch="x86_64"/>
@@ -363,7 +377,7 @@
         <package name="openSUSE-release"/>
     </packages>
 
-    <packages type="bootstrap" profiles="kvm,kvm-and-xen">
+    <packages type="bootstrap" profiles="kvm,kvm-and-xen,kvm-cloud-image">
         <package name="openSUSE-release-appliance-kvm"/>
     </packages>
     <packages type="bootstrap" profiles="OpenStack-Cloud">
