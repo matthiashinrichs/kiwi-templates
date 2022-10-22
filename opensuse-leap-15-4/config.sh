@@ -77,27 +77,6 @@ suseImportBuildKey
 #--------------------------------------
 suseInsertService sshd
 
-if [ -e /etc/cloud/cloud.cfg ]; then
-        # not useful for cloud
-        systemctl mask systemd-firstboot.service
-
-        suseInsertService cloud-init-local
-        suseInsertService cloud-init
-        suseInsertService cloud-config
-        suseInsertService cloud-final
-else
-        # Enable jeos-firstboot
-        mkdir -p /var/lib/YaST2
-        touch /var/lib/YaST2/reconfig_system
-
-        systemctl mask systemd-firstboot.service
-        systemctl enable jeos-firstboot.service
-fi
-
-# Enable firewalld if installed
-if [ -x /usr/sbin/firewalld ]; then
-        chkconfig firewalld on
-fi
 
 # Set GRUB2 to boot graphically (bsc#1097428)
 sed -Ei"" "s/#?GRUB_TERMINAL=.+$/GRUB_TERMINAL=gfxterm/g" /etc/default/grub
