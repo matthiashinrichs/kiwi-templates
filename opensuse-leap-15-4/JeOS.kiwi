@@ -323,12 +323,7 @@
         <package name="grub2-snapper-plugin"/>  <!-- snapper - grub2 - integration, "small" -->
         <package name="snapper-zypp-plugin"/>   <!-- this is key snapper/zypp integration, as requested in the PRD -->
         <package name="snapper"/>
-
-        <!-- Only if not cloud-init -->
-        <package name="jeos-firstboot"/>
-        <package name="fbiterm"/> 
-        <!-- Optionally used by jeos-firstboot for non-latin fonts -->
-
+        <package name="qemu-guest-agent" arch="x86_64"/>
         <!-- Not useful with OpenStack --> 
         <package name="firewalld"/>
     </packages>
@@ -353,17 +348,7 @@
     <packages type="image" profiles="kvm-and-xen,kvm,OpenStack-Cloud,kvm-cloud-image">
         <package name="qemu-guest-agent"/>
     </packages>
-    <packages type="image" profiles="VMware">
-        <package name="open-vm-tools" arch="x86_64"/>
-        <package name="kernel-default-base"/>
-    </packages>
-    <packages type="image" profiles="OpenStack-Cloud">
-        <package name="cloud-init" />
-        <package name="cloud-init-config-suse" />
-        <package name="xfsprogs" />
-        <package name="kernel-default-base"/>
-    </packages>
-        <packages type="image" profiles="kvm-cloud-image">
+    <packages type="image" profiles="kvm-cloud-image">
         <package name="cloud-init" />
         <package name="cloud-init-config-suse" />
     </packages>
@@ -394,15 +379,6 @@
 
     <packages type="bootstrap" profiles="kvm,kvm-and-xen,kvm-cloud-image">
         <package name="openSUSE-release-appliance-kvm"/>
-    </packages>
-    <packages type="bootstrap" profiles="OpenStack-Cloud">
-        <package name="openSUSE-release-appliance-openstack"/>
-    </packages>
-    <packages type="bootstrap" profiles="MS-HyperV">
-        <package name="openSUSE-release-appliance-hyperv"/>
-    </packages>
-    <packages type="bootstrap" profiles="VMware">
-        <package name="openSUSE-release-appliance-vmware"/>
     </packages>
     <packages type="bootstrap" profiles="RaspberryPi">
         <package name="openSUSE-release-appliance-custom"/>
