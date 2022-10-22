@@ -75,7 +75,7 @@ suseImportBuildKey
 #======================================
 # Enable sshd
 #--------------------------------------
-chkconfig sshd on
+suseInsertService sshd
 
 if [ -e /etc/cloud/cloud.cfg ]; then
         # not useful for cloud
