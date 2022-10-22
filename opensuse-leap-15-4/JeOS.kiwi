@@ -30,19 +30,13 @@
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>openSUSE</bootsplash-theme>
         <bootloader-theme>openSUSE</bootloader-theme>
-    <!-- those settings are applied by suseConfig in config.sh
-        <locale>en_US</locale>
-        <keytable>us.map.gz</keytable>
-        <timezone>Europe/Berlin</timezone>
-        <hwclock>utc</hwclock>
-    --> 
-        <locale>de_DE</locale>
+        <locale>de_CH</locale>
         <keytable>de</keytable>
         <timezone>Europe/Zurich</timezone>
         <hwclock>utc</hwclock>
         <rpm-excludedocs>true</rpm-excludedocs>
         <type
-            image="vmx"
+            image="oem"
             filesystem="btrfs"
             format="qcow2"
             bootloader="grub2"
@@ -66,6 +60,11 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
+            <oemconfig>
+                <oem-swapsize>512</oem-swapsize>
+                <oem-resize>true</oem-resize>
+                <oem-multipath-scan>false</oem-multipath-scan>
+            </oemconfig>
             <size unit="G">24</size>
         </type>
     </preferences>
@@ -83,7 +82,7 @@
     -->
         <rpm-excludedocs>true</rpm-excludedocs>
         <type
-            image="vmx"
+            image="oem"
             filesystem="btrfs"
             format="qcow2"
             bootloader="grub2"
@@ -106,7 +105,7 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
-            <size unit="G">24</size>
+            <size unit="G">33</size>
         </type>
     </preferences>
 
