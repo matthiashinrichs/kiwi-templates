@@ -55,7 +55,6 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
-            <size unit="G">35</size>
             <machine memory="2048"/>
         </type>
     </preferences>
