@@ -2,19 +2,15 @@
 
 <!-- OBS-Profiles: @BUILD_FLAVOR@ -->
 
-<image schemaversion="6.1" name="openSUSE-Leap-15.4-JeOS" displayname="openSUSE Leap 15.4">
+<image schemaversion="6.8" name="openSUSE-Leap-15.4-JeOS" displayname="openSUSE Leap 15.4">
     <description type="system">
-        <author>openSUSE Project</author>
-        <contact>crc@suse.com</contact>
-        <specification>openSUSE Leap 15.4 JeOS</specification>
+        <author>Matthias Hinrichs</author>
+        <contact>matthias.hinrichs@me.com</contact>
+        <specification>openSUSE Leap 15.4 very minimal OS</specification>
     </description>
     <profiles>
         <profile name="kvm-and-xen" description="JeOS for KVM and Xen" arch="x86_64"/>
         <profile name="kvm-cloud-image" description="JeOS for KVM for Harvester" arch="x86_64"/>
-        <profile name="kvm" description="JeOS for KVM" arch="aarch64"/>
-        <profile name="VMware" description="JeOS for VMware" arch="x86_64"/>
-        <profile name="MS-HyperV" description="JeOS for Hyper-V" arch="x86_64"/>
-        <profile name="OpenStack-Cloud" description="JeOS for OpenStack Cloud" arch="x86_64"/>
         <profile name="RaspberryPi" description="JeOS for the Raspberry Pi" arch="aarch64"/>
     </profiles>
     <users>
@@ -65,7 +61,8 @@
                 <oem-resize>true</oem-resize>
                 <oem-multipath-scan>false</oem-multipath-scan>
             </oemconfig>
-            <size unit="G">24</size>
+            <size unit="G">35</size>
+            <machine memory="1024"/>
         </type>
     </preferences>
 
@@ -74,12 +71,10 @@
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>openSUSE</bootsplash-theme>
         <bootloader-theme>openSUSE</bootloader-theme>
-    <!-- those settings are applied by suseConfig in config.sh
-        <locale>en_US</locale>
-        <keytable>us.map.gz</keytable>
-        <timezone>Europe/Berlin</timezone>
+        <locale>de_CH</locale>
+        <keytable>de</keytable>
+        <timezone>Europe/Zurich</timezone>
         <hwclock>utc</hwclock>
-    -->
         <rpm-excludedocs>true</rpm-excludedocs>
         <type
             image="oem"
@@ -114,12 +109,10 @@
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>openSUSE</bootsplash-theme>
         <bootloader-theme>openSUSE</bootloader-theme>
-    <!-- those settings are applied by suseConfig in config.sh
-        <locale>en_US</locale>
-        <keytable>us.map.gz</keytable>
-        <timezone>Europe/Berlin</timezone>
+        <locale>de_CH</locale>
+        <keytable>de</keytable>
+        <timezone>Europe/Zurich</timezone>
         <hwclock>utc</hwclock>
-    -->
         <rpm-excludedocs>true</rpm-excludedocs>
         <type
             image="oem"
@@ -199,12 +192,12 @@
     </packages>
 
     <!-- Shim for secure boot everywhere except for RPi -->
-    <packages type="image" profiles="kvm-and-xen,kvm,VMware,MS-HyperV,OpenStack-Cloud,kvm-cloud-image">
+    <packages type="image" profiles="kvm-and-xen,kvm,kvm-cloud-image">
         <package name="shim" arch="aarch64,x86_64"/>
     </packages>
 
     <!-- Not needed in OpenStack as it uses XFS and cloud-init -->
-    <packages type="image" profiles="kvm-and-xen,kvm,VMware,MS-HyperV,RaspberryPi">
+    <packages type="image" profiles="kvm-and-xen,kvm,RaspberryPi">
         <!-- Only for btrfs -->
         <package name="btrfsprogs"/>
         <package name="btrfsmaintenance"/>
@@ -232,7 +225,7 @@
     <packages type="image" profiles="kvm-and-xen,kvm,kvm-cloud-image">
         <package name="kernel-default-base"/>
     </packages>
-    <packages type="image" profiles="kvm-and-xen,kvm,OpenStack-Cloud,kvm-cloud-image">
+    <packages type="image" profiles="kvm-and-xen,kvm,kvm-cloud-image">
         <package name="qemu-guest-agent"/>
     </packages>
     <packages type="image" profiles="kvm-cloud-image">
