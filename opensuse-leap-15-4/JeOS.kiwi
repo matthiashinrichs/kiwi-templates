@@ -29,7 +29,6 @@
         <locale>de_CH</locale>
         <keytable>de</keytable>
         <timezone>Europe/Zurich</timezone>
-        <hwclock>utc</hwclock>
         <rpm-excludedocs>true</rpm-excludedocs>
         <type
             image="oem"
@@ -74,7 +73,6 @@
         <locale>de_CH</locale>
         <keytable>de</keytable>
         <timezone>Europe/Zurich</timezone>
-        <hwclock>utc</hwclock>
         <rpm-excludedocs>true</rpm-excludedocs>
         <type
             image="oem"
@@ -112,7 +110,6 @@
         <locale>de_CH</locale>
         <keytable>de</keytable>
         <timezone>Europe/Zurich</timezone>
-        <hwclock>utc</hwclock>
         <rpm-excludedocs>true</rpm-excludedocs>
         <type
             image="oem"
