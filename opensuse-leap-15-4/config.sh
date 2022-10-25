@@ -76,7 +76,7 @@ suseImportBuildKey
 # Enable sshd
 #--------------------------------------
 suseInsertService sshd
-
+suseInsertService venv-salt-minion
 
 # Set GRUB2 to boot graphically (bsc#1097428)
 sed -Ei"" "s/#?GRUB_TERMINAL=.+$/GRUB_TERMINAL=gfxterm/g" /etc/default/grub
