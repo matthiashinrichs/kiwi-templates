@@ -2,7 +2,7 @@
 
 <!-- OBS-Profiles: @BUILD_FLAVOR@ -->
 
-<image schemaversion="7.4" name="openSUSE-Leap-15.4-JeOS" displayname="openSUSE Leap 15.4">
+<image schemaversion="7.3" name="openSUSE-Leap-15.4-JeOS" displayname="openSUSE Leap 15.4">
     <description type="system">
         <author>Matthias Hinrichs</author>
         <contact>matthias.hinrichs@me.com</contact>
