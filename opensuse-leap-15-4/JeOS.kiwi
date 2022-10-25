@@ -152,12 +152,13 @@
         <package name="patterns-base-enhanced_base"/>
         <package name="aaa_base"/>
         <package name="aaa_base-extras"/> <!-- wouldn't be SUSE without that ;-) -->
+        <package name="patterns-base-apparmor"/>
         <package name="acl"/>
         <package name="chrony"/>
         <package name="curl"/> <!-- needed for openQA, maybe delete -->
+        <package name="dhcp-client"/>
         <package name="dracut"/>
         <package name="dracut-kiwi-oem-repart"/>
-        <package name="fipscheck"/>
         <package name="group(mail)"/> <!-- needed by useradd bsc#1061838-->
         <package name="group(wheel)"/>
         <package name="grub2-branding-openSUSE" bootinclude="true"/>
@@ -180,7 +181,7 @@
         <package name="iproute2"/> 
         <package name="openssh"/>
         <package name="rsync"/>
-        <package name="salt-minion"/>
+        <package name="venv-salt-minion"/>
         <package name="dosfstools"/> <!-- For fscking /boot/efi -->
         <package name="lsof"/> <!-- For zypper ps (bsc#1167553) -->
         <package name="jeos-licenses"/>
