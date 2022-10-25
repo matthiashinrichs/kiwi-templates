@@ -2,7 +2,7 @@
 
 <!-- OBS-Profiles: @BUILD_FLAVOR@ -->
 
-<image schemaversion="6.8" name="openSUSE-Leap-15.4-JeOS" displayname="openSUSE Leap 15.4">
+<image schemaversion="7.4" name="openSUSE-Leap-15.4-JeOS" displayname="openSUSE Leap 15.4">
     <description type="system">
         <author>Matthias Hinrichs</author>
         <contact>matthias.hinrichs@me.com</contact>
@@ -55,13 +55,8 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
-            <oemconfig>
-                <oem-swapsize>512</oem-swapsize>
-                <oem-resize>true</oem-resize>
-                <oem-multipath-scan>false</oem-multipath-scan>
-            </oemconfig>
             <size unit="G">35</size>
-            <machine memory="1024"/>
+            <machine memory="2048"/>
         </type>
     </preferences>
 
@@ -136,11 +131,6 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
-            <oemconfig>
-              <oem-swap>true</oem-swap>
-              <oem-swapsize>1000</oem-swapsize>
-              <oem-skip-verify>true</oem-skip-verify>
-            </oemconfig>
         </type>
     </preferences>
 
@@ -171,6 +161,7 @@
         <package name="haveged"/>
         <package name="less" />
         <package name="tar"/>
+        <package name="sudo"/>
         <package name="parted"/>
         <package name="openSUSE-build-key"/>
         <package name="systemd"/>
@@ -181,6 +172,7 @@
         <package name="iproute2"/> 
         <package name="openssh"/>
         <package name="rsync"/>
+        <package name="yast2"/>
         <package name="venv-salt-minion"/>
         <package name="dosfstools"/> <!-- For fscking /boot/efi -->
         <package name="lsof"/> <!-- For zypper ps (bsc#1167553) -->

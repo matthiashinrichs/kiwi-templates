@@ -47,6 +47,8 @@ rm -f /etc/machine-id \
       /var/lib/zypp/AnonymousUniqueId \
       /var/lib/systemd/random-seed \
       /var/lib/dbus/machine-id
+dbus-uuidgen --ensure
+systemd-machine-id-setup
 
 #======================================
 # SuSEconfig
