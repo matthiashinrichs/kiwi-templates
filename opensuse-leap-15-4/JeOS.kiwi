@@ -44,17 +44,7 @@
             btrfs_quota_groups="true"
             btrfs_root_is_snapshot="true"
         >
-            <systemdisk>
-                <volume name="home"/>
-                <volume name="root"/>
-                <volume name="tmp"/>
-                <volume name="opt"/>
-                <volume name="srv"/>
-                <volume name="boot/grub2/i386-pc"/>
-                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi"/>
-                <volume name="usr/local"/>
-                <volume name="var" copy_on_write="false"/>
-            </systemdisk>
+            <size unit="G">50</size>
             <machine memory="2048"/>
         </type>
     </preferences>
@@ -92,7 +82,7 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
-            <size unit="G">33</size>
+            <size unit="G">50</size>
         </type>
     </preferences>
 
